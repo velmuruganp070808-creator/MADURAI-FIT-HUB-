@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MADURAI FIT HUB</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #06120c;
+            color: white;
+        }
+
+        /* ============================= */
+        /* WELCOME PAGE */
+        /* ============================= */
+
+        #welcomePage {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),
+                url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48")
+                center/cover no-repeat;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcomeContent {
+            z-index: 2;
+            padding: 30px;
+        }
+
+        .welcomeContent h1 {
+            font-size: 60px;
+            color: #00ff88;
+            text-shadow: 0 0 20px #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .welcomeContent p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #eeeeee;
+        }
+
+        .startButton {
+            padding: 16px 45px;
+            border: 2px solid #00ff88;
+            border-radius: 40px;
+            background: #00ff88;
+            color: #06120c;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .startButton:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 30px #00ff88;
+        }
+
+        /* Animated circles */
+
+        .circle {
+            position: absolute;
+            border: 2px solid rgba(0,255,136,0.3);
+            border-radius: 50%;
+            animation: moveCircle 8s infinite linear;
+        }
+
+        .circle1 {
+            width: 250px;
+            height: 250px;
+            top: 10%;
+            left: 5%;
+        }
+
+        .circle2 {
+            width: 350px;
+            height: 350px;
+            bottom: 5%;
+            right: 5%;
+        }
+
+        .circle3 {
+            width: 150px;
+            height: 150px;
+            top: 20%;
+            right: 20%;
+        }
+
+        @keyframes moveCircle {
+            0% {
+                transform: rotate(0deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(180deg) translateY(30px);
+            }
+
+            100% {
+                transform: rotate(360deg) translateY(0);
+            }
+        }
+
+
+        /* ============================= */
+        /* MAIN PAGE */
+        /* ============================= */
+
+        #mainPage {
+            display: none;
+            min-height: 100vh;
+        }
+
+        nav {
+            width: 100%;
+            padding: 18px 7%;
+            background: rgba(0,0,0,0.9);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .homeButton {
+            padding: 10px 22px;
+            border: 1px solid #00ff88;
+            border-radius: 25px;
+            background: transparent;
+            color: #00ff88;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .homeButton:hover {
+            background: #00ff88;
+            color: #06120c;
+        }
+
+
+        /* Hero */
+
+        .hero {
+            min-height: 55vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.75)),
+                url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b")
+                center/cover no-repeat;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            color: #00ff88;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 750px;
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+
+        /* ============================= */
+        /* CATEGORY SECTION */
+        /* ============================= */
+
+        .categories {
+            padding: 60px 7%;
+        }
+
+        .sectionTitle {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sectionTitle h2 {
+            font-size: 35px;
+            color: #00ff88;
+        }
+
+        .sectionTitle p {
+            margin-top: 10px;
+            color: #cccccc;
+        }
+
+        .categoryGrid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .categoryCard {
+            background: #0c1f14;
+            border: 1px solid #164c32;
+            border-radius: 20px;
+            padding: 35px 20px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .categoryCard:hover {
+            transform: translateY(-10px);
+            border-color: #00ff88;
+            box-shadow: 0 0 25px rgba(0,255,136,0.3);
+        }
+
+        .categoryIcon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .categoryCard h3 {
+            color: #00ff88;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .categoryCard p {
+            color: #cccccc;
+            line-height: 1.5;
+        }
+
+
+        /* ============================= */
+        /* CATEGORY PAGE */
+        /* ============================= */
+
+        #categoryPage {
+            display: none;
+            min-height: 100vh;
+            padding: 70px 8%;
+
+            background:
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+                url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438")
+                center/cover fixed no-repeat;
+        }
+
+        #categoryContent {
+            max-width: 900px;
+            margin: auto;
+
+            background: rgba(6,18,12,0.95);
+            padding: 40px;
+            border-radius: 25px;
+            border: 1px solid #00ff88;
+
+            box-shadow: 0 0 30px rgba(0,255,136,0.2);
+        }
+
+        #categoryContent h2 {
+            color: #00ff88;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        #categoryContent p {
+            line-height: 1.7;
+            color: #dddddd;
+            margin-bottom: 20px;
+        }
+
+        #categoryContent ul {
+            margin: 20px 0 30px 25px;
+        }
+
+        #categoryContent li {
+            margin: 12px 0;
+            color: #eeeeee;
+        }
+
+
+        /* ============================= */
+        /* PROFILE FORM */
+        /* ============================= */
+
+        .profileForm {
+            margin-top: 30px;
+            padding: 25px;
+
+            background: #0c1f14;
+            border-radius: 20px;
+            border: 1px solid #164c32;
+        }
+
+        .formGroup {
+            margin-bottom: 20px;
+        }
+
+        .formGroup label {
+            display: block;
+            color: #00ff88;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .formGroup input,
+        .formGroup select,
+        .formGroup textarea {
+            width: 100%;
+            padding: 13px;
+
+            border: 1px solid #285c42;
+            border-radius: 10px;
+
+            background: #06120c;
+            color: white;
+
+            outline: none;
+        }
+
+        .formGroup input:focus,
+        .formGroup select:focus,
+        .formGroup textarea:focus {
+            border-color: #00ff88;
+        }
+
+        .formGroup textarea {
+            resize: vertical;
+        }
+
+        .submitButton {
+            padding: 13px 28px;
+
+            border: 2px solid #00ff88;
+            border-radius: 30px;
+
+            background: #00ff88;
+            color: #06120c;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submitButton:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+
+        /* Category HOME button */
+
+        .categoryHomeButton {
+            margin-top: 30px;
+
+            padding: 13px 28px;
+
+            border: 2px solid #00ff88;
+            border-radius: 30px;
+
+            background: transparent;
+            color: #00ff88;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .categoryHomeButton:hover {
+            background: #00ff88;
+            color: #06120c;
+            box-shadow: 0 0 20px #00ff88;
+        }
+
+
+        /* ============================= */
+        /* FOOTER */
+        /* ============================= */
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #030805;
+            color: #aaaaaa;
+        }
+
+        footer span {
+            color: #00ff88;
+        }
+
+
+        /* ============================= */
+        /* MOBILE RESPONSIVE */
+        /* ============================= */
+
+        @media (max-width: 800px) {
+
+            .welcomeContent h1 {
+                font-size: 40px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .categoryGrid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 19px;
+            }
+
+            #categoryContent {
+                padding: 25px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================================= -->
+    <!-- PAGE 1 : WELCOME PAGE -->
+    <!-- ================================= -->
+
+    <section id="welcomePage">
+
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+
+        <div class="welcomeContent">
+
+            <h1>MADURAI FIT HUB</h1>
+
+            <p>
+                Your fitness community in Madurai
+            </p>
+
+            <button
+                class="startButton"
+                onclick="startWebsite()">
+
+                START 🚀
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================= -->
+    <!-- PAGE 2 : MAIN PAGE -->
+    <!-- ================================= -->
+
+    <section id="mainPage">
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+            <div class="logo">
+                MADURAI FIT HUB
+            </div>
+
+            <button
+                class="homeButton"
+                onclick="goHome()">
+
+                HOME
+
+            </button>
+
+        </nav>
+
+
+
+        <!-- HERO -->
+
+        <div class="hero">
+
+            <h1>
+                Welcome to MADURAI FIT HUB
+            </h1>
+
+            <p>
+                Connect with fitness lovers, discover events,
+                join communities, take part in challenges,
+                find workout partners and explore fitness
+                opportunities around Madurai.
+            </p>
+
+        </div>
+
+
+
+        <!-- CATEGORIES -->
+
+        <section class="categories">
+
+            <div class="sectionTitle">
+
+                <h2>
+                    Explore MADURAI FIT HUB
+                </h2>
+
+                <p>
+                    Choose a category to continue
+                </p>
+
+            </div>
+
+
+            <div class="categoryGrid">
+
+
+                <!-- EVENTS -->
+
+                <div
+                    class="categoryCard"
+                    onclick="openCategory('events')">
+
+                    <div class="categoryIcon">
+                        🏃
+                    </div>
+
+                    <h3>
+                        EVENTS
+                    </h3>
+
+                    <p>
+                        Discover fitness events,
+                        marathons and sports activities
+                        in Madurai.
+                    </p>
+
+                </div>
+
+
+
+                <!-- COMMUNITIES -->
+
+                <div
+                    class="categoryCard"
+                    onclick="openCategory('communities')">
+
+                    <div class="categoryIcon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        COMMUNITIES
+                    </h3>
+
+                    <p>
+                        Connect with fitness communities
+                        and activity groups.
+                    </p>
+
+                </div>
+
+
+
+                <!-- CHALLENGES -->
+
+                <div
+                    class="categoryCard"
+                    onclick="openCategory('challenges')">
+
+                    <div class="categoryIcon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        CHALLENGES
+                    </h3>
+
+                    <p>
+                        Take part in fun and healthy
+                        fitness challenges.
+                    </p>
+
+                </div>
+
+
+
+                <!-- WORKOUT PARTNERS -->
+
+                <div
+                    class="categoryCard"
+                    onclick="openCategory('partners')">
+
+                    <div class="categoryIcon">
+                        💪
+                    </div>
+
+                    <h3>
+                        WORKOUT PARTNERS
+                    </h3>
+
+                    <p>
+                        Find people interested in
+                        similar fitness activities.
+                    </p>
+
+                </div>
+
+
+
+                <!-- AI FITNESS ASSISTANT -->
+
+                <div
+                    class="categoryCard"
+                    onclick="openCategory('ai')">
+
+                    <div class="categoryIcon">
+                        🤖
+                    </div>
+
+                    <h3>
+                        AI FITNESS ASSISTANT
+                    </h3>
+
+                    <p>
+                        Ask general fitness questions
+                        and get simple guidance.
+                    </p>
+
+                </div>
+
+
+
+                <!-- PROMOTE -->
+
+                <div
+                    class="categoryCard"
+                    onclick="openCategory('promote')">
+
+                    <div class="categoryIcon">
+                        📢
+                    </div>
+
+                    <h3>
+                        PROMOTE
+                    </h3>
+
+                    <p>
+                        Promote fitness events,
+                        gyms and communities.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <p>
+                © 2026
+                <span>MADURAI FIT HUB</span>
+                | Fitness • Community • Madurai
+            </p>
+
+        </footer>
+
+    </section>
+
+
+
+    <!-- ================================= -->
+    <!-- PAGE 3 : CATEGORY PAGE -->
+    <!-- ================================= -->
+
+    <section id="categoryPage">
+
+        <div id="categoryContent">
+            <!-- Content added using JavaScript -->
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ================================= -->
+
+    <script>
+
+
+        /* ============================= */
+        /* START WEBSITE */
+        /* ============================= */
+
+        function startWebsite() {
+
+            document.getElementById("welcomePage").style.display = "none";
+
+            document.getElementById("mainPage").style.display = "block";
+
+            document.getElementById("categoryPage").style.display = "none";
+
+            window.scrollTo(0, 0);
+        }
+
+
+
+        /* ============================= */
+        /* HOME BUTTON */
+        /* ============================= */
+
+        function goHome() {
+
+            document.getElementById("welcomePage").style.display = "none";
+
+            document.getElementById("categoryPage").style.display = "none";
+
+            document.getElementById("mainPage").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+
+        /* ============================= */
+        /* BACK TO MAIN PAGE */
+        /* ============================= */
+
+        function backToMainPage() {
+
+            document.getElementById("categoryPage").style.display = "none";
+
+            document.getElementById("mainPage").style.display = "block";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+
+        /* ============================= */
+        /* OPEN CATEGORY */
+        /* ============================= */
+
+        function openCategory(type) {
+
+            document.getElementById("mainPage").style.display = "none";
+
+            document.getElementById("categoryPage").style.display = "block";
+
+            const box =
+                document.getElementById("categoryContent");
+
+
+
+            /* ============================= */
+            /* EVENTS */
+            /* ============================= */
+
+            if (type === "events") {
+
+                box.innerHTML = `
+
+                    <h2>
+                        🏃 Madurai Fitness Events
+                    </h2>
+
+                    <p>
+                        Discover fitness activities and
+                        events happening around Madurai.
+                    </p>
+
+                    <ul>
+                        <li>Marathons & Running Events</li>
+                        <li>Cycling Events</li>
+                        <li>Walking Events</li>
+                        <li>Sports Activities</li>
+                        <li>Fitness Competitions</li>
+                        <li>Yoga & Wellness Events</li>
+                    </ul>
+
+                    <h3 style="color:#00ff88;">
+                        Join the fitness community!
+                    </h3>
+
+                    ${profileForm()}
+
+                    <button
+                        class="categoryHomeButton"
+                        onclick="backToMainPage()">
+
+                        🏠 HOME
+
+                    </button>
+
+                `;
+            }
+
+
+
+            /* ============================= */
+            /* COMMUNITIES */
+            /* ============================= */
+
+            else if (type === "communities") {
+
+                box.innerHTML = `
+
+                    <h2>
+                        🤝 Madurai Fitness Communities
+                    </h2>
+
+                    <p>
+                        Find and connect with fitness
+                        communities based on your interests.
+                    </p>
+
+                    <ul>
+                        <li>Running Communities</li>
+                        <li>Gym Communities</li>
+                        <li>Cycling Groups</li>
+                        <li>Walking Groups</li>
+                        <li>Yoga Communities</li>
+                        <li>Sports Communities</li>
+                    </ul>
+
+                    <h3 style="color:#00ff88;">
+                        Connect with people who share
+                        your interests.
+                    </h3>
+
+                    ${profileForm()}
+
+                    <button
+                        class="categoryHomeButton"
+                        onclick="backToMainPage()">
+
+                        🏠 HOME
+
+                    </button>
+
+                `;
+            }
+
+
+
+            /* ============================= */
+            /* CHALLENGES */
+            /* ============================= */
+
+            else if (type === "challenges") {
+
+                box.innerHTML = `
+
+                    <h2>
+                        🏆 Fitness Challenges
+                    </h2>
+
+                    <p>
+                        Take part in fun and healthy
+                        challenges and keep track of
+                        your progress.
+                    </p>
+
+                    <ul>
+                        <li>7-Day Activity Challenge</li>
+                        <li>30-Day Fitness Challenge</li>
+                        <li>Walking Challenge</li>
+                        <li>Running Challenge</li>
+                        <li>Step Challenge</li>
+                        <li>Consistency Challenge</li>
+                    </ul>
+
+                    <h3 style="color:#00ff88;">
+                        Set a goal. Stay consistent.
+                        Have fun!
+                    </h3>
+
+                    ${profileForm()}
+
+                    <button
+                        class="categoryHomeButton"
+                        onclick="backToMainPage()">
+
+                        🏠 HOME
+
+                    </button>
+
+                `;
+            }
+
+
+
+            /* ============================= */
+            /* WORKOUT PARTNERS */
+            /* ============================= */
+
+            else if (type === "partners") {
+
+                box.innerHTML = `
+
+                    <h2>
+                        💪 Workout Partners
+                    </h2>
+
+                    <p>
+                        Find people in Madurai who enjoy
+                        similar fitness activities.
+                    </p>
+
+                    <ul>
+                        <li>Running Partners</li>
+                        <li>Walking Partners</li>
+                        <li>Cycling Partners</li>
+                        <li>Sports Partners</li>
+                        <li>Gym Training Partners</li>
+                    </ul>
+
+                    <h3 style="color:#00ff88;">
+                        Choose safe public places and
+                        exercise responsibly.
+                    </h3>
+
+                    ${profileForm()}
+
+                    <button
+                        class="categoryHomeButton"
+                        onclick="backToMainPage()">
+
+                        🏠 HOME
+
+                    </button>
+
+                `;
+            }
+
+
+
+            /* ============================= */
+            /* AI FITNESS ASSISTANT */
+            /* ============================= */
+
+            else if (type === "ai") {
+
+                box.innerHTML = `
+
+                    <h2>
+                        🤖 AI Fitness Assistant
+                    </h2>
+
+                    <p>
+                        Ask general fitness questions
+                        and receive simple educational
+                        guidance.
+                    </p>
+
+                    <div class="profileForm">
+
+                        <div class="formGroup">
+
+                            <label>
+                                Your Question
+                            </label>
+
+                            <textarea
+                                id="aiQuestion"
+                                rows="4"
+                                placeholder="Type your fitness question..."></textarea>
+
+                        </div>
+
+                        <button
+                            class="submitButton"
+                            onclick="askAI()">
+
+                            ASK AI 🤖
+
+                        </button>
+
+                        <p id="aiAnswer"></p>
+
+                    </div>
+
+                    <button
+                        class="categoryHomeButton"
+                        onclick="backToMainPage()">
+
+                        🏠 HOME
+
+                    </button>
+
+                `;
+            }
+
+
+
+            /* ============================= */
+            /* PROMOTE */
+            /* ============================= */
+
+            else if (type === "promote") {
+
+                box.innerHTML = `
+
+                    <h2>
+                        📢 Promote in Madurai Fit Hub
+                    </h2>
+
+                    <p>
+                        Have a gym, fitness event or
+                        fitness community? Submit
+                        information to promote it on
+                        Madurai Fit Hub.
+                    </p>
+
+                    <ul>
+                        <li>Promote a Gym</li>
+                        <li>Promote a Fitness Event</li>
+                        <li>Promote a Running Club</li>
+                        <li>Promote a Cycling Group</li>
+                        <li>Promote a Sports Community</li>
+                    </ul>
+
+                    ${profileForm()}
+
+                    <button
+                        class="categoryHomeButton"
+                        onclick="backToMainPage()">
+
+                        🏠 HOME
+
+                    </button>
+
+                `;
+            }
+
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+
+        /* ============================= */
+        /* PROFILE FORM */
+        /* ============================= */
+
+        function profileForm() {
+
+            return `
+
+                <div class="profileForm">
+
+                    <div class="formGroup">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Enter your name">
+
+                    </div>
+
+
+                    <div class="formGroup">
+
+                        <label>
+                            Age
+                        </label>
+
+                        <input
+                            type="number"
+                            min="13"
+                            max="100"
+                            placeholder="Enter your age">
+
+                    </div>
+
+
+                    <div class="formGroup">
+
+                        <label>
+                            Area in Madurai
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Example: Anna Nagar">
+
+                    </div>
+
+
+                    <div class="formGroup">
+
+                        <label>
+                            Fitness Interest
+                        </label>
+
+                        <select>
+
+                            <option>
+                                Select your interest
+                            </option>
+
+                            <option>
+                                Running
+                            </option>
+
+                            <option>
+                                Walking
+                            </option>
+
+                            <option>
+                                Cycling
+                            </option>
+
+                            <option>
+                                Gym
+                            </option>
+
+                            <option>
+                                Yoga
+                            </option>
+
+                            <option>
+                                Sports
+                            </option>
+
+                            <option>
+                                General Fitness
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="formGroup">
+
+                        <label>
+                            About You
+                        </label>
+
+                        <textarea
+                            rows="4"
+                            placeholder="Tell us about your fitness interest..."></textarea>
+
+                    </div>
+
+
+                    <button
+                        class="submitButton"
+                        onclick="submitProfile()">
+
+                        SUBMIT 🚀
+
+                    </button>
+
+                </div>
+
+            `;
+        }
+
+
+
+        /* ============================= */
+        /* PROFILE SUBMIT */
+        /* ============================= */
+
+        function submitProfile() {
+
+            alert(
+                "Your information has been entered successfully! 🎉"
+            );
+
+        }
+
+
+
+        /* ============================= */
+        /* AI FITNESS DEMO */
+        /* ============================= */
+
+        function askAI() {
+
+            const question =
+                document.getElementById("aiQuestion").value;
+
+            const answer =
+                document.getElementById("aiAnswer");
+
+
+            if (question.trim() === "") {
+
+                answer.innerHTML =
+                    "Please enter a question first.";
+
+                return;
+            }
+
+
+            answer.innerHTML = `
+
+                🤖 <strong>
+                    AI Fitness Assistant:
+                </strong>
+
+                <br><br>
+
+                Stay consistent with healthy
+                activities, get enough rest, stay
+                hydrated and choose activities that
+                are appropriate for your age and
+                abilities.
+
+            `;
+
+        }
+
+    </script>
+
+</body>
+</html>
